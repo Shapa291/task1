@@ -4,6 +4,12 @@ Array.prototype.myForEach = function (callback) {
     }
  }
  
+Array.prototype.myFilter = function (callback) {
+    let filteredArray = []
+
+
+}
+
  const arr = ["a", "b", "c"]
  
  arr.myForEach((item, index, array) => {
