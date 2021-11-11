@@ -10,7 +10,7 @@ Array.prototype.myReduce = function (callback, initialValues) {
     const start = ( initialValues === undefined ) ? 1 : 0
 
     for  (let i = start; i < this.length; i++) {
-       accamulator = callback (accamulator, this[i]) 
+       accamulator = callback (accamulator, this[i], index, this) 
     }
     return accamulator;
 }
