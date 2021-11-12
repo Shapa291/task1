@@ -33,9 +33,19 @@ Array.prototype.myMap = function (callback) {
   return mappedArray;
 };
 
+Array.prototype.mySome = function (callback) {
+  let booleanResult = false;
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i])) booleanResult = true;
+    if (callback(i)) if (callback(this)) booleanResult = true;
+  }
+  return booleanResult;
+};
+
 const numArr = [1, 2, 3, 4, 5, 6];
 const arr = ["a", "b", "c"];
 const dataForFilter = [1, 2, 3, 4, 5];
+const dataForTestSOME = [2, 5, 11, 1, 4];
 const dataForMap = [1, 2, 3, 4, 5, 6];
 
 arr.myForEach((item, index, array) => {
@@ -59,25 +69,13 @@ arr.myForEach((item, index, array) => {
 console.log(numArr.myReduce((sum, val) => sum + val)); //without initial value
 console.log(numArr.myReduce((sum, val) => sum + val, 100)); //with inital value
 
-Array.prototype.mySome = function (callback) {  
-    let booleanResult = false
-    for (let i = 0; i < this.length; i++){
-      if (callback(this[i])) booleanResult = true
-      if (callback(i))
-      if (callback(this)) booleanResult = true
-    }
-    return booleanResult;
-}
-
-const dataForTestSOME = [2, 5, 11, 1, 4]
-
 const checkResultArraySOME = (item, index, array) => {
-  return array.length > 1
-}
+  return array.length > 1;
+};
 
 const checkResultItemSOME = (item, index, array) => {
-  return item > 2
-}
+  return item > 2;
+};
 
-console.log(dataForTestSOME.some(checkResultArraySOME))
-console.log(dataForTestSOME.some(checkResultItemSOME))
+console.log(dataForTestSOME.some(checkResultArraySOME));
+console.log(dataForTestSOME.some(checkResultItemSOME));
