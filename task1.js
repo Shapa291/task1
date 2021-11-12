@@ -4,6 +4,25 @@ Array.prototype.myForEach = function (callback) {
   }
 };
 
+Array.prototype.myFilter = function (callback) {
+  let filteredArray = [];
+
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i])) {
+      filteredArray.push(his[i]);
+    }
+  }
+
+  return filteredArray;
+};
+
+const dataForFilter = [1, 2, 3, 4, 5];
+const arr = ["a", "b", "c"];
+
+const filterData = dataForFilter.myFilter((el) => {
+  if (el > 2) return el;
+});
+
 Array.prototype.myMap = function (callback) {
   let mappedArray = [];
   for (let i = 0; i < this.length; i++) {
