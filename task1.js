@@ -19,6 +19,5 @@ const testFunctionElementFIND = (el, index, array) => {
   return el == array.length
 };
 
-console.log(dataForTestFIND.length);
 console.log(dataForTestFIND.myFindIndex(testFunctionArrayFIND));
 console.log(dataForTestFIND.myFindIndex(testFunctionElementFIND));
