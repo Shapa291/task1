@@ -4,6 +4,17 @@ Array.prototype.myForEach = function (callback) {
   }
 };
 
+Array.prototype.myFind = function (callback) {
+  let findResult = undefined;
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      findResult = this[i];
+      break;
+    }
+  }
+  return findResult;
+};
+
 Array.prototype.myReduce = function (callback, initialValues) {
   let accamulator = initialValues === undefined ? this[0] : initialValues;
   const start = initialValues === undefined ? 1 : 0;
@@ -47,6 +58,7 @@ const arr = ["a", "b", "c"];
 const dataForFilter = [1, 2, 3, 4, 5];
 const dataForTestSOME = [2, 5, 11, 1, 4];
 const dataForMap = [1, 2, 3, 4, 5, 6];
+const dataForTestFIND = [1, 2, 3, 4, 5, 6, 7, 10, 1, 1];
 
 arr.myForEach((item, index, array) => {
   console.log(item, " ", index, " ");
@@ -79,3 +91,15 @@ const checkResultItemSOME = (item, index, array) => {
 
 console.log(dataForTestSOME.some(checkResultArraySOME));
 console.log(dataForTestSOME.some(checkResultItemSOME));
+
+
+function testFunctionArrayFIND(element, index, array) {
+  return array.length == element;
+}
+
+function testFunctionElementFIND(element, index, array) {
+  return element < 5;
+}
+
+console.log(dataForTestFIND.myFind(testFunctionArrayFIND));
+console.log(dataForTestFIND.myFind(testFunctionElementFIND));
