@@ -3,7 +3,6 @@ Array.prototype.myForEach = function (callback) {
     callback(this[i], i, this);
   }
 };
-const arr = ["a", "b", "c"];
 
 Array.prototype.myReduce = function (callback, initialValues) {
   let accamulator = initialValues === undefined ? this[0] : initialValues;
@@ -15,17 +14,6 @@ Array.prototype.myReduce = function (callback, initialValues) {
   return accamulator;
 };
 
-
-arr.myForEach((item, index, array) => {
-  console.log(item, " ", index, " ");
-});
-
-const numArr = [1, 2, 3, 4, 5, 6];
-const arr = ["a", "b", "c"];
-const dataForFilter = [1, 2, 3, 4, 5];
-
-console.log(numArr.myReduce((sum, val) => sum + val)); //without initial value
-console.log(numArr.myReduce((sum, val) => sum + val, 100)); //with inital value
 Array.prototype.myFilter = function (callback) {
   let filteredArray = [];
 
@@ -34,14 +22,8 @@ Array.prototype.myFilter = function (callback) {
       filteredArray.push(his[i]);
     }
   }
-
   return filteredArray;
 };
-
-
-const filterData = dataForFilter.myFilter((el) => {
-  if (el > 2) return el;
-});
 
 Array.prototype.myMap = function (callback) {
   let mappedArray = [];
@@ -50,7 +32,19 @@ Array.prototype.myMap = function (callback) {
   }
   return mappedArray;
 };
+
+const numArr = [1, 2, 3, 4, 5, 6];
+const arr = ["a", "b", "c"];
+const dataForFilter = [1, 2, 3, 4, 5];
 const dataForMap = [1, 2, 3, 4, 5, 6];
+
+arr.myForEach((item, index, array) => {
+  console.log(item, " ", index, " ");
+});
+
+const filterData = dataForFilter.myFilter((el) => {
+  if (el > 2) return el;
+});
 
 const mappedData = dataForMap.myMap((item, index, array) => {
   console.log(item, " ", index, " ", array);
@@ -58,8 +52,9 @@ const mappedData = dataForMap.myMap((item, index, array) => {
 });
 console.log(mappedData);
 
-const arr = ["a", "b", "c"];
-
 arr.myForEach((item, index, array) => {
   console.log(item, " ", index, " ");
 });
+
+console.log(numArr.myReduce((sum, val) => sum + val)); //without initial value
+console.log(numArr.myReduce((sum, val) => sum + val, 100)); //with inital value
