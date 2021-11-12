@@ -3,8 +3,8 @@ Array.prototype.myForEach = function (callback) {
     callback(this[i], i, this);
   }
 };
+const arr = ["a", "b", "c"];
 
-<<<<<<< HEAD
 Array.prototype.myReduce = function (callback, initialValues) {
   let accamulator = initialValues === undefined ? this[0] : initialValues;
   const start = initialValues === undefined ? 1 : 0;
@@ -15,17 +15,17 @@ Array.prototype.myReduce = function (callback, initialValues) {
   return accamulator;
 };
 
-const arr = ["a", "b", "c"];
 
 arr.myForEach((item, index, array) => {
   console.log(item, " ", index, " ");
 });
 
 const numArr = [1, 2, 3, 4, 5, 6];
+const arr = ["a", "b", "c"];
+const dataForFilter = [1, 2, 3, 4, 5];
 
 console.log(numArr.myReduce((sum, val) => sum + val)); //without initial value
 console.log(numArr.myReduce((sum, val) => sum + val, 100)); //with inital value
-=======
 Array.prototype.myFilter = function (callback) {
   let filteredArray = [];
 
@@ -38,8 +38,6 @@ Array.prototype.myFilter = function (callback) {
   return filteredArray;
 };
 
-const dataForFilter = [1, 2, 3, 4, 5];
-const arr = ["a", "b", "c"];
 
 const filterData = dataForFilter.myFilter((el) => {
   if (el > 2) return el;
@@ -65,4 +63,3 @@ const arr = ["a", "b", "c"];
 arr.myForEach((item, index, array) => {
   console.log(item, " ", index, " ");
 });
->>>>>>> b61a607fd414ec698e03a6c3cb9257188b3948e6
