@@ -20,7 +20,7 @@ Array.prototype.myReduce = function (callback, initialValues) {
   const start = initialValues === undefined ? 1 : 0;
 
   for (let i = start; i < this.length; i++) {
-    accamulator = callback(accamulator, this[i], index, this);
+    accamulator = callback(accamulator, this[i], this);
   }
   return accamulator;
 };
@@ -30,7 +30,7 @@ Array.prototype.myFilter = function (callback) {
 
   for (let i = 0; i < this.length; i++) {
     if (callback(this[i])) {
-      filteredArray.push(his[i]);
+      filteredArray.push(this[i]);
     }
   }
   return filteredArray;
@@ -103,3 +103,5 @@ function testFunctionElementFIND(element, index, array) {
 
 console.log(dataForTestFIND.myFind(testFunctionArrayFIND));
 console.log(dataForTestFIND.myFind(testFunctionElementFIND));
+
+module.exports = Array.prototype.myFilter
